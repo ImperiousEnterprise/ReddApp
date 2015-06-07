@@ -34,6 +34,10 @@ gem 'bootstrap-sass'
 
 #Gem for Voting
 gem 'acts_as_votable'
+
+#Gem for Comments
+gem 'simple_form'
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 
