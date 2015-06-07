@@ -1,10 +1,9 @@
-<style type="text/css">
-    #Buttons {
-    }
-</style><p id="notice"><%= notice %></p>
+<p id="notice"><%= notice %></p>
 
 <p id="UrlTitle">
-  <strong><a href=<%= @link.url %> ><%= @link.title %></a></strong>
+  <strong><a href=<%= @link.url %> ><%= @link.title %></a>
+     <br> <small>Submitted by <%= @link.user.name %></small>
+  </strong>
 </p>
 
 <div id="LinkOptions">

@@ -69,17 +69,17 @@ $white: #fff;
 }
 
 /**Registration New**/
-.New{
+.New, .form-group{
   text-align: center;
-  .input{
+  .input,.form-control{
     width:50%;
   }
 }
 
 /**New Session**/
-.SessionNew{
+.SessionNew,  .form-group{
   text-align: center;
-  .input{
+  .input, .form-control{
     width:50%;
   }
 }
