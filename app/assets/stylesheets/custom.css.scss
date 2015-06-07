@@ -1,0 +1,86 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+/* universal */
+html {
+  overflow-y: auto;
+}
+body {
+  padding-top: 60px;
+}
+/* header */
+$white: #fff;
+#logo {
+  float: left;
+  margin-right: 5px;
+  font-size: 1.7em;
+  color: $white;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+  padding-top: 20px;
+  font-weight: bold;
+  &:hover {
+    color: $white;
+    text-decoration: none;
+  }
+}
+
+/**Display's table **/
+
+#linktable{
+  width: 100%;
+  height:100%;
+  th,td{
+    text-align: center;
+    font-size: 1.7em;
+    padding-bottom: 10px;
+  }
+}
+
+/**Show Linked Clicked**/
+#UrlTitle{
+  text-align: center;
+  font-size: x-large;
+}
+#LinkOptions{
+  text-align: center;
+}
+
+/**Link Form**/
+#error_explanation{
+  text-align: center;
+  font-size: large;
+  color:red;
+}
+.Headerz,.actions{
+  text-align: center;
+}
+.field{
+  text-align: center;
+  .input{
+    width:50%;
+  }
+}
+/**Registration Edit**/
+.head, .EditReg, .button_to, #Cancel{
+  text-align: center;
+  .input{
+    width:50%;
+  }
+}
+
+/**Registration New**/
+.New{
+  text-align: center;
+  .input{
+    width:50%;
+  }
+}
+
+/**New Session**/
+.SessionNew{
+  text-align: center;
+  .input{
+    width:50%;
+  }
+}

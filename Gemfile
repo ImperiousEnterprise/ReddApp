@@ -29,6 +29,9 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 #Gem for authenification
 gem 'devise'
 
+#Gem for CSS stylings
+gem 'bootstrap-sass'
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 

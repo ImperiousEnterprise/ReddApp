@@ -1,38 +1,20 @@
 <p id="notice"><%= notice %></p>
-
-<h1>Listing Links</h1>
-
-<table>
+<table id="linktable">
   <thead>
     <tr>
       <th>Title</th>
-      <th>Url</th>
+      <!--<th>Url</th>-->
       <th colspan="3"></th>
     </tr>
   </thead>
 
   <tbody>
-  <% if user_signed_in? %>
-      <ul>
-          <li><%= link_to 'Submit link', new_link_path %></li>
-          <li><%= link_to 'Account', edit_user_registration_path %></li>
-          <li><%= link_to 'Sign out', destroy_user_session_path, :method => :delete %></li>
-      </ul>
-  <% else %>
-      <ul>
-          <li><%= link_to 'Sign up', new_user_registration_path %></li>
-          <li><%= link_to 'Sign in', new_user_session_path %></li>
-      </ul>
-  <% end %>
+
     <% @links.each do |link| %>
       <tr>
-        <td><%= link.title %></td>
-        <td><%= link.url %></td>
+        <td><a href=<%= link.url %> > <%= link.title %></a></td>
+        <!--<td><%= link.url %></td>-->
           <td><%= link_to 'Show', link %></td>
-          <% if link.user == current_user %>
-              <td><%= link_to 'Edit', edit_link_path(@link) %></td>
-              <td><%= link_to 'Destroy', @link, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-          <% end %>
        </tr>
     <% end %>
 
