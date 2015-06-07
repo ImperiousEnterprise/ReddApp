@@ -1,9 +1,9 @@
-<p id="notice"><%= notice %></p>
+<!--<p id="notice"><%= notice %></p>
 <table id="linktable">
   <thead>
     <tr>
       <th>Title</th>
-      <!--<th>Url</th>-->
+      &lt;!&ndash;<th>Url</th>&ndash;&gt;
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -13,14 +13,33 @@
     <% @links.each do |link| %>
       <tr>
         <td><a href=<%= link.url %> > <%= link.title %></a></td>
-        <!--<td><%= link.url %></td>-->
+        &lt;!&ndash;<td><%= link.url %></td>&ndash;&gt;
           <td><%= link_to 'Show', link %></td>
        </tr>
     <% end %>
 
   </tbody>
 </table>
+<br>-->
 
-<br>
-
-
+<% @links.each do |link| %>
+    <div id="linktable" class="link row clearfix">
+        <h2>
+            <%= link_to link.title, link %><br>
+            <small class="author">Submitted <%= time_ago_in_words(link.created_at) %> by </small>
+        </h2>
+        <div class="btn-group">
+            <a class="btn btn-default btn-sm" href="<%= link.url %>">Visit Link</a>
+            <%= link_to like_link_path(link), method: :put, class: "btn btn-default btn-sm" do %>
+                <span class="glyphicon glyphicon-chevron-up"></span>
+                Upvote
+                <%= link.get_upvotes.size %>
+            <% end %>
+            <%= link_to dislike_link_path(link), method: :put, class: "btn btn-default btn-sm" do %>
+                <span class="glyphicon glyphicon-chevron-down"></span>
+                Downvote
+            <%= link.get_downvotes.size %>
+            <% end %>
+        </div>
+    </div>
+<% end %>

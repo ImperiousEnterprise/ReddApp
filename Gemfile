@@ -32,6 +32,8 @@ gem 'devise'
 #Gem for CSS stylings
 gem 'bootstrap-sass'
 
+#Gem for Voting
+gem 'acts_as_votable'
 # Use Unicorn as the app server
 # gem 'unicorn'
 

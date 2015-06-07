@@ -1,13 +1,30 @@
-<p id="notice"><%= notice %></p>
+<style type="text/css">
+    #Buttons {
+    }
+</style><p id="notice"><%= notice %></p>
 
 <p id="UrlTitle">
   <strong><a href=<%= @link.url %> ><%= @link.title %></a></strong>
 </p>
 
 <div id="LinkOptions">
-<% if @link.user == current_user %>
-    <td><%= link_to 'Edit', edit_link_path(@link) %></td>
-    <td><%= link_to 'Destroy', @link, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-<% end %>
-<%= link_to 'Back', links_path %>
+
+    <div class="btn-group">
+        <% if @link.user == current_user %>
+            <%= link_to 'Edit', edit_link_path(@link), class: "btn btn-default btn-sm" %>
+            <%= link_to 'Destroy', @link, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-default btn-sm" %>
+        <% end %>
+        <%= link_to like_link_path(@link), method: :put, class: "btn btn-default btn-sm" do %>
+            <span class="glyphicon glyphicon-chevron-up"></span>
+            Upvote
+            <%= @link.get_upvotes.size %>
+        <% end %>
+        <%= link_to dislike_link_path(@link), method: :put, class: "btn btn-default btn-sm" do %>
+            <span class="glyphicon glyphicon-chevron-down"></span>
+            Downvote
+            <%= @link.get_downvotes.size %>
+        <% end %>
+        <%= link_to 'Back', links_path , class: "btn btn-default btn-sm"%>
+    </div>
+
     </div>
