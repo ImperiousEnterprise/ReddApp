@@ -3,11 +3,11 @@ require 'test_helper'
 class LinkTest < ActiveSupport::TestCase
 
   def setup
-    @link = Link.new(:title => "Test Case",:url => 'https://www.youtube.com')
+    @link = Link.new(:title => "Test Case",:url => 'http://www.tutorialspoint.com')
   end
 
   test "should be valid" do
-    assert @link.valid? ,"Not valid"
+    assert @link.valid? , @link.errors.full_messages
   end
   test "title should not be blank" do
     @link.title = ""

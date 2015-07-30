@@ -2,21 +2,25 @@ class LinksController < ApplicationController
   before_action :set_link, only: [:show, :edit, :update, :destroy]
   before_action :authorized_user, only: [:edit, :update, :destroy]
   before_filter :authenticate_user!, :except => [:index, :show]
+  respond_to :html, :json
 
   # GET /links
   # GET /links.json
   def index
     @links = Link.all
+    respond_with(@links)
   end
 
   # GET /links/1
   # GET /links/1.json
   def show
+    respond_with(@links)
   end
 
   # GET /links/new
   def new
     @link = current_user.links.build
+    respond_with(@links)
   end
 
   # GET /links/1/edit
@@ -27,6 +31,10 @@ class LinksController < ApplicationController
   # POST /links.json
   def create
     @link = current_user.links.build(link_params)
+    flash[:notice] = 'Link was successfully created.' if @link.save
+    respond_with(@link)
+
+=begin
     respond_to do |format|
       if @link.save
         format.html { redirect_to @link, notice: 'Link was successfully created.' }
@@ -36,11 +44,27 @@ class LinksController < ApplicationController
         format.json { render json: @link.errors, status: :unprocessable_entity }
       end
     end
+=end
   end
 
   # PATCH/PUT /links/1
   # PATCH/PUT /links/1.json
   def update
+    #@link = Link.find(params[:id])
+    respond_with(@link) do |format|
+      if @link.update(link_params)
+        #flash[:notice] = 'Link was successfully updated.'
+        #redirect_to @link
+        format.html { redirect_to @link , notice: 'Link was successfully updated.'}
+        format.json { render :show, status: :ok, location: @link }
+      else
+        format.html { render :edit }
+        format.json { render json: @link.errors, status: :unprocessable_entity }
+      end
+    end
+
+
+=begin
     respond_to do |format|
       if @link.update(link_params)
         format.html { redirect_to @link, notice: 'Link was successfully updated.' }
@@ -50,16 +74,25 @@ class LinksController < ApplicationController
         format.json { render json: @link.errors, status: :unprocessable_entity }
       end
     end
+=end
   end
 
   # DELETE /links/1
   # DELETE /links/1.json
   def destroy
     @link.destroy
+    respond_with @link do |format|
+      format.html {redirect_to links_url, notice: 'Link was successfully destroyed.'}
+      format.json { head :no_content }
+    end
+
+=begin
+    @link.destroy
     respond_to do |format|
       format.html { redirect_to links_url, notice: 'Link was successfully destroyed.' }
       format.json { head :no_content }
     end
+=end
   end
 
   def upvote
