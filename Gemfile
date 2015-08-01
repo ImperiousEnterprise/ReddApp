@@ -39,6 +39,9 @@ gem 'simple_form'
 #Gem for postgre
 gem 'pg'
 
+#Gem for Rdoc
+gem 'rdoc-data'
+
 #Gem for serving static assests on Heroku
 gem 'rails_12factor', group: :production
 # Use Unicorn as the app server
