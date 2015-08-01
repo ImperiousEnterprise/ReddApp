@@ -10,16 +10,23 @@
 #   http://dev.mysql.com/doc/refman/5.0/en/old-client.html
 #
 default: &default
-  adapter: mysql2
+  adapter: postgresql
   encoding: utf8
-  pool: 5
-  username: root
-  password:
+  pool: 5 # not mandatory
+  username: RedditUser
+  password: reddit2015
   host: localhost
+  #adapter: mysql2
+  #encoding: utf8
+  #pool: 5
+  #username: root
+  #password:
+  #host: localhost
+
 
 development:
   <<: *default
-  database: ReddApp_development
+  database: ReddApp_Development
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -48,7 +55,12 @@ test:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
 production:
-  <<: *default
-  database: ReddApp_production
-  username: ReddApp
-  password: <%= ENV['REDDAPP_DATABASE_PASSWORD'] %>
+  #<<: *default
+  database: ddm52cbloet5hp
+  username: neyupzdpoqkdvt
+  password: g43KnHCAKt01_-4GY5Uz9dP8Y8
+  adapter: postgresql
+  encoding: utf8
+  pool: 5 # not mandatory
+  host: ec2-54-83-51-0.compute-1.amazonaws.com
+  port: 5432
