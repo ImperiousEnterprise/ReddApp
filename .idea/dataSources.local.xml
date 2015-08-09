@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="dataSourceStorageLocal">
+    <data-source name="Rails ReddApp: development" uuid="a7c9e297-b48a-4cfc-bdfe-cf5a8d6f5d9e">
+      <user-name>RedditUser</user-name>
+      <user-password>dfd8dfcfdfcedfcedfc3dfdedf98df9adf9bdf9f</user-password>
+      <schema-pattern>ReddApp_development.*</schema-pattern>
+      <default-schemas>ReddApp_development.*</default-schemas>
+    </data-source>
+    <data-source name="Rails ReddApp: test" uuid="abd2b306-a6ec-4825-9368-a20a06fc675c">
+      <user-name>RedditUser</user-name>
+      <user-password>dfd8dfcfdfcedfcedfc3dfdedf98df9adf9bdf9f</user-password>
+      <schema-pattern>ReddApp_test.*</schema-pattern>
+      <default-schemas>ReddApp_test.*</default-schemas>
+    </data-source>
+    <data-source name="Rails ReddApp: production" uuid="7f32a70b-ea88-4f7e-a69d-29125ccb2367">
+      <first-sync>true</first-sync>
+      <user-name>neyupzdpoqkdvt</user-name>
+      <user-password>dfcddf9edf99dfe1dfc4dfe2dfe9dfebdfe1dfdedf9adf9bdff5df87df9edfeddff3df9fdfffdfd0df93dfcedffadf92dff3df92</user-password>
+    </data-source>
+    <data-source name="PostgreSQL - ReddApp_test@localhost" uuid="83579cbb-6b96-43ba-b299-3f322dd931ae">
+      <secret-storage>master_key</secret-storage>
+      <user-name>RedditUser</user-name>
+      <schema-pattern>ReddApp_test.pg_catalog ReddApp_test.public</schema-pattern>
+      <default-schemas>ReddApp_test.pg_catalog ReddApp_test.public</default-schemas>
+    </data-source>
+    <data-source name="PostgreSQL - ReddApp_Development@localhost" uuid="6dc2a879-6846-4a51-8721-e86cb43b244c">
+      <secret-storage>master_key</secret-storage>
+      <user-name>RedditUser</user-name>
+      <schema-pattern>ReddApp_Development.pg_catalog ReddApp_Development.public</schema-pattern>
+      <default-schemas>ReddApp_Development.pg_catalog ReddApp_Development.public</default-schemas>
+    </data-source>
+  </component>
+</project>
