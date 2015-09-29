@@ -1,0 +1,38 @@
+$(function() {
+
+
+    $('#lead_<%=@comment.id%>').html("<%= j (render 'form') %>");
+
+    $('#Cancel_<%=@comment.id%>').click(function(){
+        var lead = $('.edit_comment').parent().parent().find('.leading');
+        var text_value = null;
+        if(!$('.edit_comment #comment_body').val()){
+            text_value = $('.edit_comment #comment_body').data('val');
+        }else{
+            text_value= $('.edit_comment #comment_body').val();
+        }
+        lead.html(text_value);
+    });
+
+    $('.edit_comment #comment_body').focusin(function(){
+        $(this).data('val',$(this).val());
+    });
+
+    $('#edit_comment_<%=@comment.id%>').on("ajax:success", function(data){
+
+        $('.actions input[type="submit"]').val('Edit Again');
+        $('.actions input[type="submit"]').prop('disabled',false);
+        $('#Cancel_<%=@comment.id%>').show();
+        $('.errorz').remove();
+    }).bind("ajax:send",function(){
+        $('#Cancel_<%=@comment.id%>').hide();
+        $('#lead_<%=@comment.id%> p').remove();
+        $('.actions input[type="submit"]').val('Loading');
+        $('.actions input[type="submit"]').prop('disabled',true);
+    }).bind("ajax:error", function(e,xhr,status,error){
+        $('#lead_<%=@comment.id%>').append($('<p> -'+xhr.responseJSON.error+ ' </p>').addClass('errorz'));
+        $('.actions input[type="submit"]').val('Resubmit');
+        $('.actions input[type="submit"]').prop('disabled',false);
+        $('#Cancel_<%=@comment.id%>').show();
+    });
+});

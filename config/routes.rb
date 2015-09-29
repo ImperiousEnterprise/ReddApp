@@ -1,12 +1,15 @@
 Rails.application.routes.draw do
-  resources :comments
+  resources :comments , except: [:new]
+  get '/comments/new/(:parent_id)', to: 'comments#new', as: :new_comment
+
   devise_for :users
   resources :links do
     member do
       put "like", to: "links#upvote"
       put "dislike", to: "links#downvote"
     end
-    resources :comments
+    resources :comments , except: [:new]
+    get '/comments/new/(:parent_id)', to: 'comments#new', as: :new_comment
   end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

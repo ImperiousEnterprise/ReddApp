@@ -39,6 +39,15 @@ gem 'simple_form'
 #Gem for postgre
 gem 'pg'
 
+#Gem for nested comments
+gem 'closure_tree'
+
+#Gem for binding jquery to turbolinks
+gem 'jquery-turbolinks'
+
+#Gem for jquery UI
+gem 'jquery-ui-rails'
+
 #Gem for serving static assests on Heroku
 gem 'rails_12factor', group: :production
 # Use Unicorn as the app server

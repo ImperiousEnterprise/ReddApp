@@ -1,0 +1,22 @@
+$(function(){
+
+    $('#replying_<%= @comment.parent_id%>').html("<%= j (render 'replyform' , {id: @comment.parent_id  , linkid: @comment.link_id}) %>");
+    $('#replying_<%= @comment.parent_id%> form').css("float","left");
+    $('#Cancel_reply').click(function(){
+       $('form[id="new_comment"]').remove();
+        $('.errorz').remove();
+    });
+
+    $('#new_comment').on("ajax:success", function(event, xhr, settings,data){
+        location.reload();
+    }).bind("ajax:send",function(){
+        $('#Cancel_reply').hide();
+        $('.reply_action input[type="submit"]').val('Loading');
+        $('.reply_action input[type="submit"]').prop('disabled',true);
+    }).bind("ajax:error", function(e,xhr,status,error){
+        $('#Cancel_reply').show();
+        $('#replying_<%= @comment.parent_id%>').append($('<p> -'+xhr.responseJSON.error+ ' </p>').addClass('errorz'));
+        $('.reply_action input[type="submit"]').val('Retry Reply');
+        $('.reply_action input[type="submit"]').prop('disabled',false);
+    });
+});

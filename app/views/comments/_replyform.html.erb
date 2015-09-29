@@ -1,0 +1,12 @@
+<%= simple_form_for [@link, Comment.new], remote: true do |f| %>
+    <%= f.hidden_field :parent_id , value: id%>
+    <%= f.hidden_field :link_id , value: linkid%>
+    <div class="field">
+        <%= f.text_area :body, class: "form-control" %>
+    </div>
+    <br>
+    <div class="reply_action">
+    <%= f.submit "Reply", class: "btn btn-primary" %>
+    <%= submit_tag "Cancel" ,:type => 'button' , id: "Cancel_reply" ,class: "btn btn-primary"%>
+    </div>
+<% end %>

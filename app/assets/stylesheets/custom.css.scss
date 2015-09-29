@@ -44,7 +44,15 @@ $white: #fff;
     text-align: center;
   }
 }
-
+hr {
+  display: block;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  margin-left: auto;
+  margin-right: auto;
+  border-style: inset;
+  border-width: 1px;
+}
 /**Link Form**/
 #error_explanation{
   text-align: center;
@@ -82,4 +90,33 @@ $white: #fff;
   .input, .form-control{
     width:50%;
   }
+}
+
+/**Comments**/
+.reply_post:hover, #edit_post:hover{
+  text-decoration: underline;
+}
+
+.replies {margin-left:50px;}
+.replies .replies {margin-lef:0;}
+
+.commentz {
+  margin-left:5%;
+}
+.replying{
+  display: none;
+}
+.edit_comment{
+  float:left;
+}
+.errorz{
+  float: left;
+  font-size: large;
+  color:red;
+}
+
+#LinkAlign > form{
+  display: inline-block;
+  margin-left:50px;
+  width: 50%;
 }

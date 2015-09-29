@@ -1,14 +1,29 @@
-<%= div_for(comment) do %>
+<%= div_for(comment , class: "comments")%>
     <div class="comments_wrapper clearfix">
         <div class="pull-left">
-            <p class="lead"><%= comment.body %></p>
-            <p><small>Submitted <strong><%= time_ago_in_words(comment.created_at) %> ago</strong> by <%= comment.user.email %></small></p>
+            <p><small>Submitted <strong><%= time_ago_in_words(comment.created_at) %> ago</strong> by <%= comment.user.name %></small>
+                <% if user_signed_in? %>
+                    <%=link_to link_new_comment_path(@link,comment),remote: true do%>
+                        <small class="reply_post">Reply</small>
+                    <% end%>
+                    <% if comment.user == current_user%>
+                        <%=link_to edit_comment_path(comment),remote: true do%>
+                                <small id="edit_post_<%= comment.id %>">Edit</small>
+                        <% end%>
+                        <%= link_to comment_path(comment), method: :delete, data: { confirm: 'Are you sure?'} do%>
+                            <small id="destroy_post_<%= comment.id %>">Destroy</small>
+                        <%end%>
+                    <%end%>
+                <%end%>
+            </p>
+
+
+            <p id="lead_<%=comment.id%>" class="leading"><%= comment.body %></p>
+            <br>
+            <% if user_signed_in? %>
+            <div id="replying_<%= comment.id%>">
+            </div>
+            <%end%>
         </div>
 
-        <div class="btn-group pull-right">
-            <% if comment.user == current_user -%>
-                <%= link_to 'Destroy', comment, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-sm btn-default" %>
-            <% end %>
-        </div>
     </div>
-<% end %>

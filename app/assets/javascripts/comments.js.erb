@@ -1,0 +1,22 @@
+$(function(){
+
+    $('input[type="submit"]').prop('disabled',false);
+
+
+    $('.reply_post, .replies .reply_post').click(function(){
+        var b = $(this).parent().parent().parent();
+        var replying = b.find('.replying');
+        if($('body').find('.edit_comment').length){
+            var lead = $('.edit_comment').parent().parent().find('.leading');
+            lead.html($('.edit_comment #comment_body').val());
+        }
+
+        if($('.replying').length){
+            $('.replying').hide();
+        }
+            replying.show();
+
+    });
+
+
+});

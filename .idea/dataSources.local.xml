@@ -2,14 +2,14 @@
 <project version="4">
   <component name="dataSourceStorageLocal">
     <data-source name="Rails ReddApp: development" uuid="a7c9e297-b48a-4cfc-bdfe-cf5a8d6f5d9e">
-      <user-name>RedditUser</user-name>
-      <user-password>dfd8dfcfdfcedfcedfc3dfdedf98df9adf9bdf9f</user-password>
+      <user-name>Champloo</user-name>
+      <user-password>dfe8dfcbdfc8dfd3dfc8dfc6dfdfdfcfdf98df9adf9bdf9f</user-password>
       <schema-pattern>ReddApp_development.*</schema-pattern>
       <default-schemas>ReddApp_development.*</default-schemas>
     </data-source>
     <data-source name="Rails ReddApp: test" uuid="abd2b306-a6ec-4825-9368-a20a06fc675c">
-      <user-name>RedditUser</user-name>
-      <user-password>dfd8dfcfdfcedfcedfc3dfdedf98df9adf9bdf9f</user-password>
+      <user-name>Champloo</user-name>
+      <user-password>dfe8dfcbdfc8dfd3dfc8dfc6dfdfdfcfdf98df9adf9bdf9f</user-password>
       <schema-pattern>ReddApp_test.*</schema-pattern>
       <default-schemas>ReddApp_test.*</default-schemas>
     </data-source>

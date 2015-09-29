@@ -1,4 +1,3 @@
-<p id="notice"><%= notice %></p>
 
 <p id="UrlTitle">
   <strong><a href=<%= @link.url %> ><%= @link.title %></a>
@@ -28,17 +27,26 @@
 
 </div>
 
-<h3 class="comments_title pull-left">
+<div class="comments_title pull-left">
     <%= @link.comments.count %> Comments
-</h3>
-
-<div id="comments">
-    <%= render :partial => @link.comments %>
 </div>
-<%= simple_form_for [@link, Comment.new] do |f| %>
+
+<hr>
+<p id="main_error">ERRORS</p>
+<div id="LinkAlign">
+<% if user_signed_in? %>
+<%= simple_form_for [@link, Comment.new],html:{id: "main_new_comment"}, remote: true do |f| %>
+    <%= f.hidden_field :parent_id %>
     <div class="field">
         <%= f.text_area :body, class: "form-control" %>
     </div>
-    <br>
+
     <%= f.submit "Add Comment", class: "btn btn-primary" %>
-<% end %>
+    
+        <% end %>
+    <%end%>
+</div>
+<br>
+<h3 class="commentz">
+    <%= comments_tree_for @link.comments.roots %>
+</h3>
